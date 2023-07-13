@@ -4,7 +4,9 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {
@@ -16,7 +18,9 @@ module.exports = {
     colors: {
       purple: {
         100: '#A8A4FF',
-        200: '#635FC7'
+        125: 'rgba(99, 95, 199, .1)',
+        150: 'rgba(99, 95, 199, .25)',
+        200: '#635FC7',
       },
       grey: {
         100: '#F4F7FD',
@@ -30,7 +34,8 @@ module.exports = {
       red: {
         100: '#FF9898',
         200: '#EA5555'
-      }
+      },
+      white: '#fff'
     },
   },
   plugins: [],

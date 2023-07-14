@@ -2,6 +2,7 @@
 
 import Button from '@/lib/button';
 import ToggleTheme from '@/lib/toggle-theme';
+import Checkbox from '@/lib/checkbox';
 
 export default function Home() {
   return (
@@ -16,6 +17,13 @@ export default function Home() {
 
       <div className="flex gap-4 h-40 w-1/2 bg-grey-500 items-center justify-center">
         <ToggleTheme />
+      </div>
+
+      <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
+        <Checkbox
+          label="Talk to potential customers about our proposed solution and ask for fair price expectancy"
+          checked
+        />
       </div>
     </main>
   );

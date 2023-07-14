@@ -25,6 +25,7 @@ module.exports = {
       grey: {
         100: '#F4F7FD',
         200: '#E4EBFA',
+        250: 'rgba(130, 143, 163, .25)',
         300: '#828FA3',
         400: '#3E3F4E',
         500: '#2B2C37',
@@ -35,8 +36,13 @@ module.exports = {
         100: '#FF9898',
         200: '#EA5555'
       },
-      white: '#fff'
+      white: '#fff',
+      transparent: 'transparent',
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')({
+    strategy: 'class',
+  }),
+  ],
 };

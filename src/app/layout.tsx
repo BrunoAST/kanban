@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={plusJakartaSans.className}>{children}</body>
+      <body className={`${plusJakartaSans.className} dark:bg-grey-600 bg-grey-100`} >{children}</body>
     </html>
   );
 }

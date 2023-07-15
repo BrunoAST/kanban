@@ -2,6 +2,7 @@ import Button from '@/lib/button';
 import ToggleTheme from '@/lib/toggle-theme';
 import Checkbox from '@/lib/checkbox';
 import TextField from '@/lib/text-field';
+import TextArea from '@/lib/text-area';
 
 export default function Home() {
   return (
@@ -27,6 +28,10 @@ export default function Home() {
 
       <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
         <TextField placeholder='Enter task name' />
+      </div>
+
+      <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
+        <TextArea placeholder='Enter task name' label="Description" />
       </div>
     </main>
   );

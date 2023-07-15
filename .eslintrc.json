@@ -1,17 +1,48 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
+  ],
   "rules": {
-    "semi": ["error", "always"],
-    "max-len": ["error", {
-      "code": 120,
-      "tabWidth": 2, 
-      "ignoreComments": true,
-      "ignoreUrls": true,
-      "ignoreStrings": true
-    }],
-    "quotes": ["error", "single"],
-    "object-curly-newline": ["error", { "multiline": true, "minProperties": 3, "consistent": true }],
-    "object-curly-spacing": ["error", "always", { "objectsInObjects": true }],
-    "object-shorthand": ["error", "always", { "avoidQuotes": true }]
+    "semi": [
+      "error",
+      "always"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true,
+        "minProperties": 3,
+        "consistent": true
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "objectsInObjects": true
+      }
+    ],
+    "object-shorthand": [
+      "error",
+      "always",
+      {
+        "avoidQuotes": true
+      }
+    ]
   }
 }

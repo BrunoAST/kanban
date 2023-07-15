@@ -3,12 +3,11 @@ import ToggleTheme from '@/lib/toggle-theme';
 import Checkbox from '@/lib/checkbox';
 import TextField from '@/lib/text-field';
 import TextArea from '@/lib/text-area';
+import Dropdown from '@/lib/dropdown';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-purple-200 text-5xl">Hello</h1>
-
       <div className="flex gap-4">
         <Button label="+ Add New Column" variant='primary' />
         <Button label="+ Add New Column" variant='secondary' />
@@ -32,6 +31,10 @@ export default function Home() {
 
       <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
         <TextArea placeholder='Enter task name' label="Description" />
+      </div>
+
+      <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
+        <Dropdown label="Current Status" options={['Todo', 'Doing', 'Done']} />
       </div>
     </main>
   );

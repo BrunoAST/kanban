@@ -1,24 +1,34 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState 
+} from 'react';
 import Arrow from './components/arrow';
 import useOnClickOutside from '@/hooks/use-click-outside';
 
 type DropdownProps = {
   label: string;
   options: string[];
+  onSelectOption: (option: string) => void;
   initialSelectedOption?: string;
 };
 
 export default function Dropdown({
   label,
   options,
-  initialSelectedOption
+  initialSelectedOption,
+  onSelectOption
 }: DropdownProps) {
   const [selectedOption, setSelectedOption] = useState(initialSelectedOption ? initialSelectedOption : options[0]);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
   const dropdownContainer = useRef(null);
   useOnClickOutside(dropdownContainer, () => setIsOptionsVisible(false));
+
+  useEffect(() => {
+    onSelectOption(selectedOption);
+  }, [selectedOption, onSelectOption]);
 
   return (
     <div className="w-full flex flex-col gap-2">

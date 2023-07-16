@@ -1,6 +1,5 @@
 import Button from '@/lib/button';
 import ToggleTheme from '@/lib/toggle-theme';
-import TextArea from '@/lib/text-area';
 import Dropdown from '@/lib/dropdown';
 
 export default function Home() {
@@ -14,10 +13,6 @@ export default function Home() {
 
       <div className="flex gap-4 h-40 w-1/2 bg-grey-500 items-center justify-center">
         <ToggleTheme />
-      </div>
-
-      <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
-        <TextArea placeholder='Enter task name' label="Description" />
       </div>
 
       <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">

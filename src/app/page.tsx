@@ -24,14 +24,6 @@ export default function Home() {
       </div>
 
       <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
-        <Checkbox
-          label="Talk to potential customers about our proposed solution and ask for fair price expectancy"
-          checked={isCheck}
-          onChange={() => setIsChecked(!isCheck)}
-        />
-      </div>
-
-      <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
         <TextField placeholder='Enter task name' />
       </div>
 

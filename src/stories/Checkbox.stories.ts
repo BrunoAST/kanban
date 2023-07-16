@@ -15,8 +15,9 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     label: 'Talk to potential customers about our proposed solution and ask for fair price expectancy',
+    id: 'checkbox'
   },
 };

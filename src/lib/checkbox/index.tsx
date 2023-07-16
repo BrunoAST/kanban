@@ -1,6 +1,11 @@
 import { InputHTMLAttributes } from 'react';
 
 type CheckboxProps = & InputHTMLAttributes<HTMLInputElement> & {
+  /**
+   * Text that is displayed next to the checkbox.
+   * It is a required prop and must be a string.
+   * The default value is an empty string.
+   */
   label: string;
 };
 

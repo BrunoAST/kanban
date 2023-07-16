@@ -7,6 +7,12 @@ type CheckboxProps = {
   label: string;
 
   /**
+   * Uniquely identifies the checkbox.
+   * It is an optional prop, but it is recommended to use it.
+   */
+  id?: string;
+
+  /**
    * Used to set the initial state of the checkbox.
    * It can also be used to change the state of the checkbox dynamically.
    */
@@ -21,6 +27,7 @@ type CheckboxProps = {
 
 export default function Checkbox({
   label,
+  id,
   checked,
   onChange 
 }: CheckboxProps) {
@@ -29,7 +36,7 @@ export default function Checkbox({
       bg-grey-100 hover:bg-purple-150 dark:hover:bg-purple-150 dark:bg-grey-600"
     >
       <input
-        id="checkbox"
+        id={id}
         type="checkbox"
         className="form-checkbox peer h-4 w-4 checked:text-purple-200 bg-white rounded border-grey-250
           [&:not(:checked)]:dark:bg-grey-500 focus:ring-purple-200 focus:ring-2 focus:ring-offset-1"
@@ -37,7 +44,7 @@ export default function Checkbox({
         onChange={onChange}
       />
       <label
-        htmlFor="checkbox"
+        htmlFor={id}
         className="text-xs font-bold text-grey-700 dark:text-white peer-checked:line-through
           peer-checked:text-grey-700 peer-checked:opacity-50 dark:peer-checked:text-white"
       >

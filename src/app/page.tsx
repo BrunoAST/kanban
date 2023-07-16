@@ -1,6 +1,7 @@
+'use client';
+
 import Button from '@/lib/button';
 import ToggleTheme from '@/lib/toggle-theme';
-import Dropdown from '@/lib/dropdown';
 
 export default function Home() {
   return (
@@ -13,10 +14,6 @@ export default function Home() {
 
       <div className="flex gap-4 h-40 w-1/2 bg-grey-500 items-center justify-center">
         <ToggleTheme />
-      </div>
-
-      <div className="bg-white dark:bg-grey-500 flex gap-4 h-40 w-1/2 items-center justify-center px-4">
-        <Dropdown label="Current Status" options={['Todo', 'Doing', 'Done']} />
       </div>
     </main>
   );

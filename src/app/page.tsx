@@ -11,10 +11,6 @@ export default function Home() {
         <Button label="+ Add New Column" variant='secondary' />
         <Button label="+ Add New Column" variant='destructive' />
       </div>
-
-      <div className="flex gap-4 h-40 w-1/2 bg-grey-500 items-center justify-center">
-        <ToggleTheme />
-      </div>
     </main>
   );
 }

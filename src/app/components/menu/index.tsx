@@ -11,7 +11,7 @@ type MenuProps = {
 
 export default function Menu({ children }: MenuProps) {
   return (
-    <main className={`${styles.grid} w-full h-screen bg-red-100 dark:bg-grey-600`}>
+    <div className={`${styles.grid} w-full h-screen bg-red-100 dark:bg-grey-600`}>
       <nav
         id={styles.nav}
         className="p-4 bg-white items-center"
@@ -71,7 +71,7 @@ export default function Menu({ children }: MenuProps) {
         </div>
       </aside>
 
-      <div id={styles.content}>{children}</div>
-    </main>
+      <main id={styles.content}>{children}</main>
+    </div>
   );
 }

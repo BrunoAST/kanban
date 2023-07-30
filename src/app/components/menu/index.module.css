@@ -41,6 +41,10 @@
     grid-template-rows: 81px 1fr;
     grid-template-columns: 260px 1fr;
   }
+
+  #side {
+    grid-template-rows: 81px 1fr auto auto;
+  }
 }
 
 @media (min-width: 1440px) {

@@ -56,11 +56,11 @@ export default function Menu({ children }: MenuProps) {
 
       <aside
         id={styles.side}
-        className="hidden md:flex flex-col border-r border-grey-200 bg-white"
+        className="hidden md:grid border-r border-grey-200 bg-white"
       >
         <Logo className="pl-4 pt-5" />
 
-        <div className="mt-[54px] overflow-y-auto">
+        <div className="mb-5 overflow-y-auto">
           <h3
             className="text-grey-300 tracking-[2.4px] pl-6 font-bold text-xs uppercase mb-5"
           >

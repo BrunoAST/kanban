@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import Logo from './logo';
 import styles from './index.module.css';
+import ToggleTheme from '@/lib/toggle-theme';
 
 type MenuProps = {
   children: ReactNode;
@@ -46,28 +47,43 @@ export default function Menu({ children }: MenuProps) {
 
       <aside
         id={styles.side}
-        className="hidden md:block px-4 py-5 md:border-r md:border-grey-200 bg-white"
+        className="hidden md:flex flex-col border-r border-grey-200 bg-white"
       >
-        <Logo />
+        <Logo className="pl-4 pt-5" />
 
-        <div className="mt-[54px]">
+        <div className="mt-[54px] overflow-y-auto">
           <h3
-            className="text-grey-300 tracking-[2.4px] font-bold text-xs uppercase"
+            className="text-grey-300 tracking-[2.4px] pl-6 font-bold text-xs uppercase mb-5"
           >
             All boards (3)
           </h3>
 
-          <ul>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
+          <ul className="">
+            {Array.from({ length: 30 }).map((_, index) =>
+              <li key={index}>
+                <a href="#">Contact</a>
+              </li>
+            )}
           </ul>
+        </div>
+
+        <div className="w-full flex justify-center">
+          <ToggleTheme />
+        </div>
+
+        <div className="flex gap-2.5 items-center pl-6 py-3.5 mt-4 mb-8 cursor-pointer">
+          <Image
+            src="/icons/icon-hide-sidebar.svg"
+            height="0"
+            width="0"
+            alt="Hide sidebar"
+            className="w-[18px] h-4"
+          />
+          <span
+            className="text-sm font-bold text-grey-300"
+          >
+            Hide Sidebar
+          </span>
         </div>
       </aside>
 

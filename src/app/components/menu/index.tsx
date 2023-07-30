@@ -25,7 +25,7 @@ export default function Menu({ children }: MenuProps) {
           id={styles.board}
           className="md:hidden inline-flex items-center gap-2 ml-4 text-grey-700"
         >
-          Platform Launch 
+          Platform Launch
           <Image
             src="/icons/icon-chevron-down.svg"
             width="0"
@@ -50,17 +50,25 @@ export default function Menu({ children }: MenuProps) {
       >
         <Logo />
 
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
+        <div className="mt-[54px]">
+          <h3
+            className="text-grey-300 tracking-[2.4px] font-bold text-xs uppercase"
+          >
+            All boards (3)
+          </h3>
+
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
       </aside>
 
       <div id={styles.content}>{children}</div>

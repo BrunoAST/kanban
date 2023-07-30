@@ -5,12 +5,21 @@ import Image from 'next/image';
 import Logo from './logo';
 import styles from './index.module.css';
 import ToggleTheme from '@/lib/toggle-theme';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type MenuProps = {
   children: ReactNode;
 };
 
+const dashboard = Array.from({ length: 5 }).map((_, index) => ({
+  name: index === 0 ? 'Platform Launch' : 'Road map',
+  path: index === 0 ? '/' : `dashboard-${index}`
+}));
+
 export default function Menu({ children }: MenuProps) {
+  const pathName = usePathname();
+
   return (
     <div className={`${styles.grid} w-full h-screen bg-red-100 dark:bg-grey-600`}>
       <nav
@@ -58,10 +67,26 @@ export default function Menu({ children }: MenuProps) {
             All boards (3)
           </h3>
 
-          <ul className="">
-            {Array.from({ length: 30 }).map((_, index) =>
-              <li key={index}>
-                <a href="#">Contact</a>
+          <ul>
+            {dashboard.map((item, index) =>
+              <li
+                key={index}
+                data-active={pathName === item.path}
+                title={item.name}
+                className="max-w-[240px] rounded-tr-[100px] rounded-br-[100px] font-bold text-grey-300
+                  data-[active=true]:text-white data-[active=true]:bg-purple-200"
+              >
+                <Link href="#" className="pl-6 py-3.5 flex gap-3 items-center">
+                  <Image
+                    src={pathName === item.path ? '/icons/icon-board-active.svg' : '/icons/icon-board.svg'}
+                    height="0"
+                    width="0"
+                    alt={item.name}
+                    className="w-4 h-4"
+                  />
+
+                  {item.name}
+                </Link>
               </li>
             )}
           </ul>

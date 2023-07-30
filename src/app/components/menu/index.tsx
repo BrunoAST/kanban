@@ -89,6 +89,18 @@ export default function Menu({ children }: MenuProps) {
                 </Link>
               </li>
             )}
+            <li>
+              <Link href="#" className="pl-6 py-3.5 flex gap-3 items-center text-purple-200 font-bold">
+                <Image
+                  src="/icons/icon-board-purple.svg"
+                  height="0"
+                  width="0"
+                  alt="Create New Board"
+                  className="w-4 h-4"
+                />
+                + Create New Board
+              </Link>
+            </li>
           </ul>
         </div>
 

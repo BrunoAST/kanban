@@ -12,7 +12,7 @@ type MenuProps = {
   children: ReactNode;
 };
 
-const dashboard = Array.from({ length: 5 }).map((_, index) => ({
+const boards = Array.from({ length: 5 }).map((_, index) => ({
   name: index === 0 ? 'Platform Launch' : 'Road map',
   path: index === 0 ? '/' : `dashboard-${index}`
 }));
@@ -56,7 +56,7 @@ export default function Menu({ children }: MenuProps) {
 
       <aside
         id={styles.side}
-        className="hidden md:grid border-r border-grey-200 bg-white"
+        className="hidden md:grid border-r border-grey-200 dark:border-grey-400 bg-white dark:bg-grey-500"
       >
         <Logo className="pl-4 pt-5" />
 
@@ -64,11 +64,11 @@ export default function Menu({ children }: MenuProps) {
           <h3
             className="text-grey-300 tracking-[2.4px] pl-6 font-bold text-xs uppercase mb-5"
           >
-            All boards (3)
+            All boards ({boards.length})
           </h3>
 
           <ul>
-            {dashboard.map((item, index) =>
+            {boards.map((item, index) =>
               <li
                 key={index}
                 data-active={pathName === item.path}
@@ -108,7 +108,7 @@ export default function Menu({ children }: MenuProps) {
           <ToggleTheme />
         </div>
 
-        <div className="flex gap-2.5 items-center pl-6 py-3.5 mt-4 mb-8 cursor-pointer">
+        <div className="flex gap-2.5 items-center pl-6 py-3.5 mt-2 mb-8 cursor-pointer">
           <Image
             src="/icons/icon-hide-sidebar.svg"
             height="0"

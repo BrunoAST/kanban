@@ -39,7 +39,7 @@
       'side nav'
       'side main-content';
     grid-template-rows: 81px 1fr;
-    grid-template-columns: 261px 1fr;
+    grid-template-columns: 260px 1fr;
   }
 }
 

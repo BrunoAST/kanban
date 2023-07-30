@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { ReactNode } from 'react';
+import Menu from './components/menu';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={`${plusJakartaSans.className} dark:bg-grey-600 bg-grey-100`} >{children}</body>
+      <body className={`${plusJakartaSans.className} dark:bg-grey-600 bg-grey-100`}>
+        <Menu>{children}</Menu>
+      </body>
     </html>
   );
 }

@@ -11,7 +11,7 @@ function isDarkModeEnabledOnPageLoad(): boolean {
 }
 
 export default function useTheme() {
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState<boolean>(false);
 
   useEffect(() => {
     if (isDarkModeEnabledOnPageLoad()) {

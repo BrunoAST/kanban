@@ -1,3 +1,4 @@
+import React from 'react';
 import useTheme from '@/hooks/use-theme';
 import Image from 'next/image';
 
@@ -12,7 +13,7 @@ export default function ToggleTheme() {
         <input
           type="checkbox"
           checked={isDarkModeEnabled}
-          onChange={(e) => handleDarkTheme(e.target.checked)}
+          onChange={e => handleDarkTheme(e.target.checked)}
           className="sr-only peer"
         />
         <span className="w-11 h-6 bg-purple-200 rounded-full peer-checked:after:translate-x-full

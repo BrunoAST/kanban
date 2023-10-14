@@ -1,6 +1,26 @@
+import React from 'react';
 import { ChangeEvent } from 'react';
 
 type TextAreaProps = {
+  /**
+   * Uniquely identifies the textarea.
+   * It is an optional prop, but it is recommended to use it.
+   */
+  id?: string;
+
+  /**
+   * Text that is displayed next to the textarea.
+   * It is a required prop and must be a string.
+   * The default value is an empty string.
+   */
+  label: string;
+
+  /**
+  * Used to handle the change event of the textfield.
+  * It can be used to update the state of the textfield, or to perform other actions.
+  */
+  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+
   /**
    * Short hint that is displayed before the user enters any text.
    * It is used to help the user understand what kind of information is expected in the field.
@@ -13,25 +33,6 @@ type TextAreaProps = {
    * and it can be accessed and modified in JavaScript.
    */
   value: any;
-
-  /**
-   * Text that is displayed next to the textarea.
-   * It is a required prop and must be a string.
-   * The default value is an empty string.
-   */
-  label: string;
-
-  /**
-   * Uniquely identifies the textarea.
-   * It is an optional prop, but it is recommended to use it.
-   */
-  id?: string;
-
-  /**
-  * Used to handle the change event of the textfield.
-  * It can be used to update the state of the textfield, or to perform other actions.
-  */
-  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
 export default function TextArea({

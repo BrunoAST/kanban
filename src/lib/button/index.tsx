@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -8,6 +8,11 @@ type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
   * The default value is an empty string.
   */
   label: string;
+
+  /**
+  * Used to handle the click event of the button.
+  */
+  onClick: (e: MouseEvent) => void;
 
   /**
   * It changes the size of the button.
@@ -20,11 +25,6 @@ type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
   * The default value is primary.
   */
   variant?: 'primary' | 'secondary' | 'destructive';
-
-  /**
-  * Used to handle the click event of the button.
-  */
-  onClick: (e: MouseEvent) => void;
 };
 
 export default function Button({
@@ -49,10 +49,12 @@ export default function Button({
   return (
     <button
       {...rest}
-      className={`${twMerge(
-        `${applyColor()} ${applyPadding()} px-4 rounded-3xl duration-300 font-bold text-sm`,
-        rest.className
-      )}`}
+      className={
+        `
+        ${twMerge(`${applyColor()}
+        ${applyPadding()}
+        px-4 rounded-3xl duration-300 font-bold text-sm`, rest.className)}`
+      }
       onClick={onClick}
     >
       {label}

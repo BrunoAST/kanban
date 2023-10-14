@@ -1,14 +1,25 @@
 'use client';
 
-import {
+import React, {
   useEffect,
   useRef,
-  useState 
+  useState
 } from 'react';
 import Arrow from './components/arrow';
 import useOnClickOutside from '@/hooks/use-click-outside';
 
 type DropdownProps = {
+  /**
+   * Uniquely identifies the dropdown.
+   * It is an optional prop, but it is recommended to use it.
+   */
+  id?: string;
+
+  /**
+   * Defines the default value that must be select on initialization.
+   */
+  initialSelectedOption: string;
+
   /**
    * Text that is displayed next to the dropdown.
    * It is a required prop and must be a string.
@@ -17,25 +28,14 @@ type DropdownProps = {
   label: string;
 
   /**
-   * Dynamically populate the dropdown input with data.
-   */
-  options: string[];
-
-  /**
-   * Defines the default value that must be select on initialization.
-   */
-  initialSelectedOption: string;
-
-  /**
    * Used to handle the change event of the dropdown.
    */
   onSelectOption: (option: string) => void;
 
   /**
-   * Uniquely identifies the dropdown.
-   * It is an optional prop, but it is recommended to use it.
+   * Dynamically populate the dropdown input with data.
    */
-  id?: string;
+  options: string[];
 };
 
 export default function Dropdown({
@@ -45,7 +45,9 @@ export default function Dropdown({
   onSelectOption,
   id
 }: DropdownProps) {
-  const [selectedOption, setSelectedOption] = useState(initialSelectedOption ? initialSelectedOption : options[0]);
+  const [selectedOption, setSelectedOption] = useState(
+    initialSelectedOption ? initialSelectedOption : options[0]
+  );
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
   const dropdownContainer = useRef(null);
   useOnClickOutside(dropdownContainer, () => setIsOptionsVisible(false));
@@ -76,28 +78,34 @@ export default function Dropdown({
 
       <div
         ref={dropdownContainer}
-        className={`${isOptionsVisible ? 'visible' : 'invisible'}
-          z-10 relative bg-white rounded w-full dark:bg-gray-700`}
+        className={
+          `${isOptionsVisible ? 'visible' : 'invisible'}
+          z-10 relative bg-white rounded w-full dark:bg-gray-700`
+        }
       >
         <ul
           aria-labelledby={id}
           className="py-4 text-[13px] text-grey-300 absolute w-full bg-white rounded-lg
             dark:bg-grey-600"
         >
-          {options.map((value) =>
-            <li
-              key={value}
-              onClick={() => {
-                setSelectedOption(value);
-                setIsOptionsVisible(!isOptionsVisible);
-              }}
-              className="hover:bg-grey-250"
-            >
-              <span className="block py-2 px-4 cursor-pointer">
-                {value}
-              </span>
-            </li>
-          )}
+          {
+            options.map(value =>
+              <li
+                key={value}
+                onClick={
+                  () => {
+                    setSelectedOption(value);
+                    setIsOptionsVisible(!isOptionsVisible);
+                  }
+                }
+                className="hover:bg-grey-250"
+              >
+                <span className="block py-2 px-4 cursor-pointer">
+                  {value}
+                </span>
+              </li>
+            )
+          }
         </ul>
       </div>
     </div>

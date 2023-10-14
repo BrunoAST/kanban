@@ -1,27 +1,24 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": ["error", "always"],
     "max-len": [
       "error",
       {
-        "code": 120,
+        "code": 100,
         "tabWidth": 2,
         "ignoreComments": true,
         "ignoreUrls": true,
         "ignoreStrings": true
       }
     ],
-    "quotes": [
-      "error",
-      "single"
-    ],
+    "quotes": ["error", "single"],
     "object-curly-newline": [
       "error",
       {
@@ -42,6 +39,20 @@
       "always",
       {
         "avoidQuotes": true
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+      }
+    ],
+    "no-undef": "off",
+    "react/jsx-fragments": "error",
+    "react/jsx-curly-newline": [
+      "error",
+      {
+        "multiline": "require"
       }
     ]
   }

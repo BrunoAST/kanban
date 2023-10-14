@@ -1,10 +1,11 @@
+import React from 'react';
+
 type CheckboxProps = {
   /**
-   * Text that is displayed next to the checkbox.
-   * It is a required prop and must be a string.
-   * The default value is an empty string.
+   * Used to set the initial state of the checkbox.
+   * It can also be used to change the state of the checkbox dynamically.
    */
-  label: string;
+  checked?: boolean;
 
   /**
    * Uniquely identifies the checkbox.
@@ -13,23 +14,24 @@ type CheckboxProps = {
   id?: string;
 
   /**
-   * Used to set the initial state of the checkbox.
-   * It can also be used to change the state of the checkbox dynamically.
+   * Text that is displayed next to the checkbox.
+   * It is a required prop and must be a string.
+   * The default value is an empty string.
    */
-  checked?: boolean;
+  label: string;
 
   /**
    * Used to handle the change event of the checkbox.
    * It can be used to update the state of the checkbox, or to perform other actions.
    */
   onChange?: () => void;
-};
+}
 
 export default function Checkbox({
   label,
   id,
   checked,
-  onChange 
+  onChange
 }: CheckboxProps) {
   return (
     <div className="w-full inline-flex items-center gap-4 p-3 rounded duration-300

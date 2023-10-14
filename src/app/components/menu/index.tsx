@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import Logo from './logo';
 import styles from './index.module.css';
@@ -68,7 +68,8 @@ export default function Menu({ children }: MenuProps) {
           </h3>
 
           <ul>
-            {boards.map((item, index) =>
+            {
+boards.map((item, index) =>
               <li
                 key={index}
                 data-active={pathName === item.path}
@@ -88,7 +89,8 @@ export default function Menu({ children }: MenuProps) {
                   {item.name}
                 </Link>
               </li>
-            )}
+            )
+}
             <li>
               <Link href="#" className="pl-6 py-3.5 flex gap-3 items-center text-purple-200 font-bold">
                 <Image

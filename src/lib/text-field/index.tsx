@@ -1,6 +1,19 @@
+import React from 'react';
 import { ChangeEvent } from 'react';
 
 type TextFieldProps = {
+  /**
+   * Uniquely identifies the textfield.
+   * It is an optional prop, but it is recommended to use it.
+   */
+  id?: string;
+
+  /**
+   * Used to handle the change event of the textfield.
+   * It can be used to update the state of the textfield, or to perform other actions.
+   */
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+
   /**
    * Short hint that is displayed before the user enters any text.
    * It is used to help the user understand what kind of information is expected in the field.
@@ -13,18 +26,6 @@ type TextFieldProps = {
    * and it can be accessed and modified in JavaScript.
    */
   value: any;
-
-  /**
-   * Uniquely identifies the textfield.
-   * It is an optional prop, but it is recommended to use it.
-   */
-  id?: string;
-
-  /**
-   * Used to handle the change event of the textfield.
-   * It can be used to update the state of the textfield, or to perform other actions.
-   */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function TextField({

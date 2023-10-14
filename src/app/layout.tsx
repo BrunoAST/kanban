@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import Menu from './components/menu';
 
 const plusJakartaSans = Plus_Jakarta_Sans({

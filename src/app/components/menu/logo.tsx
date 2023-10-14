@@ -1,6 +1,6 @@
 import useTheme from '@/hooks/use-theme';
 import Image from 'next/image';
-import { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 
 export default function Logo(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const { isDarkModeEnabled } = useTheme();

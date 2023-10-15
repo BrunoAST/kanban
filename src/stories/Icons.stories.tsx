@@ -11,7 +11,7 @@ const meta: Meta<typeof Icons> = {
     },
     name: {
       control: 'select',
-      options: ['board', 'hide', 'chevron-down']
+      options: ['board', 'hide', 'chevron-down', 'light', 'dark']
     },
   },
 };

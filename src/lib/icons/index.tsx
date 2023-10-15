@@ -2,7 +2,7 @@ import React from 'react';
 import { ICON_MAP } from './icon-map';
 
 type IconsProps = {
-  name: 'board' | 'hide' | 'chevron-down';
+  name: 'board' | 'hide' | 'chevron-down' | 'light' | 'dark';
   classes?: string;
 };
 

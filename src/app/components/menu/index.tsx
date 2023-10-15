@@ -1,12 +1,12 @@
 'use client';
 
 import React, { ReactNode } from 'react';
-import Image from 'next/image';
 import Logo from './logo';
 import styles from './index.module.css';
 import ToggleTheme from '@/lib/toggle-theme';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Icons from '@/lib/icons';
 
 type MenuProps = {
   children: ReactNode;
@@ -36,13 +36,7 @@ export default function Menu({ children }: MenuProps) {
           className="md:hidden inline-flex items-center gap-2 ml-4 text-grey-700"
         >
           Platform Launch
-          <Image
-            src="/icons/icon-chevron-down.svg"
-            width="0"
-            height="0"
-            alt="Boards"
-            className="w-3 h-2"
-          />
+          <Icons name="chevron-down" classes="stroke-purple-200" />
         </div>
 
         <ul
@@ -69,37 +63,28 @@ export default function Menu({ children }: MenuProps) {
 
           <ul>
             {
-boards.map((item, index) =>
-              <li
-                key={index}
-                data-active={pathName === item.path}
-                title={item.name}
-                className="max-w-[240px] rounded-tr-[100px] rounded-br-[100px] font-bold text-grey-300
-                  data-[active=true]:text-white data-[active=true]:bg-purple-200"
-              >
-                <Link href="#" className="pl-6 py-3.5 flex gap-3 items-center">
-                  <Image
-                    src={pathName === item.path ? '/icons/icon-board-active.svg' : '/icons/icon-board.svg'}
-                    height="0"
-                    width="0"
-                    alt={item.name}
-                    className="w-4 h-4"
-                  />
-
-                  {item.name}
-                </Link>
-              </li>
-            )
-}
+              boards.map((item, index) =>
+                <li
+                  key={index}
+                  data-active={pathName === item.path}
+                  title={item.name}
+                  className="max-w-[240px] rounded-tr-[100px] rounded-br-[100px] font-bold text-grey-300
+                    data-[active=true]:text-white data-[active=true]:bg-purple-200 hover:bg-purple-125
+                    data-[active=false]:dark:hover:bg-white hover:text-purple-200 group"
+                >
+                  <Link href="#" className="pl-6 py-3.5 flex gap-3 items-center">
+                    <Icons
+                      name="board"
+                      classes="fill-grey-300 group-hover:fill-purple-200 group-data-[active=true]:fill-white"
+                    />
+                    {item.name}
+                  </Link>
+                </li>
+              )
+            }
             <li>
               <Link href="#" className="pl-6 py-3.5 flex gap-3 items-center text-purple-200 font-bold">
-                <Image
-                  src="/icons/icon-board-purple.svg"
-                  height="0"
-                  width="0"
-                  alt="Create New Board"
-                  className="w-4 h-4"
-                />
+                <Icons name="board" classes="fill-purple-200" />
                 + Create New Board
               </Link>
             </li>
@@ -110,16 +95,12 @@ boards.map((item, index) =>
           <ToggleTheme />
         </div>
 
-        <div className="flex gap-2.5 items-center pl-6 py-3.5 mt-2 mb-8 cursor-pointer">
-          <Image
-            src="/icons/icon-hide-sidebar.svg"
-            height="0"
-            width="0"
-            alt="Hide sidebar"
-            className="w-[18px] h-4"
-          />
+        <div className="flex gap-2.5 items-center pl-6 py-3.5 mt-2 mb-8 cursor-pointer
+          max-w-[270px] rounded-tr-[100px] rounded-br-[100px] hover:bg-purple-125 dark:hover:bg-white group"
+        >
+          <Icons name="hide" classes="fill-grey-300 group-hover:fill-purple-200" />
           <span
-            className="text-sm font-bold text-grey-300"
+            className="text-sm font-bold text-grey-300 group-hover:text-purple-200"
           >
             Hide Sidebar
           </span>

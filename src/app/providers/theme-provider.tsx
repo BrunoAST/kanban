@@ -22,7 +22,7 @@ function isDarkModeEnabledOnPageLoad(): boolean {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  isDarkModeEnabled: isDarkModeEnabledOnPageLoad(),
+  isDarkModeEnabled: false,
   handleDarkTheme: () => { }
 });
 

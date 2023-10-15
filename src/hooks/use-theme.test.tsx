@@ -1,6 +1,8 @@
+import React, { ReactNode } from 'react';
 import { renderHook, act } from '@testing-library/react';
 import useTheme from './use-theme';
 import 'jest-localstorage-mock';
+import ThemeProvider from '@/app/providers/theme-provider';
 
 function mockMatchMedia(expectedQuery = '(prefers-color-scheme: dark)'): void {
   Object.defineProperty(window, 'matchMedia', {
@@ -11,6 +13,9 @@ function mockMatchMedia(expectedQuery = '(prefers-color-scheme: dark)'): void {
   });
 }
 
+const wrapper = ({ children }: { children: ReactNode }) =>
+  <ThemeProvider>{children}</ThemeProvider>;
+
 describe('useTheme', () => {
   afterEach(() => {
     localStorage.clear();
@@ -19,7 +24,7 @@ describe('useTheme', () => {
   test('should initialize #isDarkModeEnabled equals to true when prefers-color-scheme is set to dark', () => {
     mockMatchMedia();
 
-    const { result } = renderHook(() => useTheme());
+    const { result } = renderHook(() => useTheme(), { wrapper });
     expect(result.current.isDarkModeEnabled).toBe(true);
   });
 
@@ -27,7 +32,7 @@ describe('useTheme', () => {
     mockMatchMedia('');
     localStorage.setItem('theme', 'dark');
 
-    const { result } = renderHook(() => useTheme());
+    const { result } = renderHook(() => useTheme(), { wrapper });
     expect(result.current.isDarkModeEnabled).toBe(true);
   });
 
@@ -35,12 +40,12 @@ describe('useTheme', () => {
     mockMatchMedia('(prefers-color-scheme: light)');
     localStorage.setItem('theme', '');
 
-    const { result } = renderHook(() => useTheme());
+    const { result } = renderHook(() => useTheme(), { wrapper });
     expect(result.current.isDarkModeEnabled).toBe(false);
   });
-  
+
   it('should apply dark mode and update isDarkModeEnabled when handleDarkTheme is called', () => {
-    const { result } = renderHook(() => useTheme());
+    const { result } = renderHook(() => useTheme(), { wrapper });
 
     act(() => {
       result.current.handleDarkTheme(true);

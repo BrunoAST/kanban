@@ -17,8 +17,8 @@ type ThemeContextType = {
 };
 
 function isDarkModeEnabledOnPageLoad(): boolean {
-  return localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  return typeof window !== 'undefined' && (localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches));
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
@@ -27,7 +27,7 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export default function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState<boolean>(false);
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
 
   useEffect(() => {
     if (isDarkModeEnabledOnPageLoad()) {

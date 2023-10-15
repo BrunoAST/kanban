@@ -1,45 +1,8 @@
-'use client';
-
-import {
-  useEffect,
-  useState
-} from 'react';
-
-function isDarkModeEnabledOnPageLoad(): boolean {
-  return localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-}
+import { ThemeContext } from '@/app/providers/theme-provider';
+import { useContext } from 'react';
 
 export default function useTheme() {
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (isDarkModeEnabledOnPageLoad()) {
-      applyDarkMode();
-    } else {
-      removeDarkMode();
-    }
-  }, []);
-
-  function handleDarkTheme(isDarkModeEnabled: boolean): void {
-    if (isDarkModeEnabled) {
-      applyDarkMode();
-    } else {
-      removeDarkMode();
-    }
-  }
-
-  function applyDarkMode(): void {
-    localStorage.setItem('theme', 'dark');
-    document.documentElement.classList.add('dark');
-    setIsDarkModeEnabled(true);
-  }
-
-  function removeDarkMode(): void {
-    localStorage.setItem('theme', 'light');
-    document.documentElement.classList.remove('dark');
-    setIsDarkModeEnabled(false);
-  }
+  const { isDarkModeEnabled, handleDarkTheme } = useContext(ThemeContext);
 
   return { handleDarkTheme, isDarkModeEnabled };
 }

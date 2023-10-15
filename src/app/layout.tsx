@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import React, { ReactNode } from 'react';
 import Menu from './components/menu';
+import ThemeProvider from './providers/theme-provider';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body className={`${plusJakartaSans.className} dark:bg-grey-600 bg-grey-100`}>
-        <Menu>{children}</Menu>
+        <ThemeProvider>
+          <Menu>{children}</Menu>
+        </ThemeProvider>
       </body>
     </html>
   );

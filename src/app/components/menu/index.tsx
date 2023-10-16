@@ -7,6 +7,7 @@ import ToggleTheme from '@/lib/toggle-theme';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Icons from '@/lib/icons';
+import TopNav from './top-nav';
 
 type MenuProps = {
   children: ReactNode;
@@ -22,32 +23,7 @@ export default function Menu({ children }: MenuProps) {
 
   return (
     <div className={`${styles.grid} w-full h-screen bg-red-100 dark:bg-grey-600`}>
-      <nav
-        id={styles.nav}
-        className="p-4 bg-white items-center"
-      >
-        <Logo
-          id={styles.logo}
-          className="md:hidden"
-        />
-
-        <div
-          id={styles.board}
-          className="md:hidden inline-flex items-center gap-2 ml-4 text-grey-700"
-        >
-          Platform Launch
-          <Icons name="chevron-down" classes="stroke-purple-200" />
-        </div>
-
-        <ul
-          id={styles.actions}
-          className="flex place-content-end"
-        >
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
-
+      <TopNav />
       <aside
         id={styles.side}
         className="hidden md:grid border-r border-grey-200 dark:border-grey-400 bg-white dark:bg-grey-500"

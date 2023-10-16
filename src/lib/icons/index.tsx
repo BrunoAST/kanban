@@ -5,7 +5,7 @@ type IconsProps = {
   /**
   * List with available icons.
   */
-  name: 'board' | 'hide' | 'chevron-down' | 'light' | 'dark';
+  name: 'board' | 'hide' | 'chevron-down' | 'light' | 'dark' | 'menu';
 
   /**
   * Custom classes that is going to be applied to the svg element when provided.

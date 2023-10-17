@@ -6,7 +6,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    label: {
+    children: {
       control: 'text',
     },
     size: {
@@ -19,7 +19,7 @@ const meta: Meta<typeof Button> = {
     },
   },
   args: {
-    label: '+ Add New Column',
+    children: '+ Add New Column',
     size: 'large',
   },
 };

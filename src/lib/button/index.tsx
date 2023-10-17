@@ -1,13 +1,11 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
   /**
-  * Text that is displayed next to the dropdown.
-  * It is a required prop and must be a string.
-  * The default value is an empty string.
+  * Content to be interpolated by the button
   */
-  label: string;
+  children: ReactNode;
 
   /**
   * Used to handle the click event of the button.
@@ -28,7 +26,7 @@ type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export default function Button({
-  label,
+  children,
   size = 'large',
   variant = 'primary',
   onClick,
@@ -48,6 +46,7 @@ export default function Button({
 
   return (
     <button
+      type="button"
       {...rest}
       className={
         `
@@ -57,7 +56,7 @@ export default function Button({
       }
       onClick={onClick}
     >
-      {label}
+      {children}
     </button>
   );
 }

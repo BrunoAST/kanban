@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = & ButtonHTMLAttributes<HTMLButtonElement> & {
   /**
   * Content to be interpolated by the button
   */

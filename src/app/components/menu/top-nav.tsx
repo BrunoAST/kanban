@@ -22,17 +22,17 @@ const menuOptions = [
 export default function TopNav(): JSX.Element {
   const platform = usePlatformDetector();
 
-  function taskButtonLabel(): string {
+  function taskButtonLabel(): string | JSX.Element {
     if (platform !== 'mobile') {
       return '+ Add New Task';
     }
-    return ' + ';
+    return <Icons name="plus" />;
   }
 
   return (
     <nav
       id={styles.nav}
-      className="p-4 bg-white dark:bg-grey-500 items-center"
+      className="px-4 bg-white dark:bg-grey-500 items-center"
     >
       <Logo
         id={styles.logo}
@@ -52,10 +52,13 @@ export default function TopNav(): JSX.Element {
         className="flex place-content-end items-center gap-2"
       >
         <Button
-          label={taskButtonLabel()}
           variant="primary"
           onClick={() => console.log('Add new task clicked')}
-        />
+          title="Add new task"
+          className="flex items-center justify-center p-0 w-12 h-8 sm:py-3.5 sm:px-6 sm:w-auto"
+        >
+          {taskButtonLabel()}
+        </Button>
 
         <Menu options={menuOptions} classes="left-[-160px] top-[60px]" />
       </div>
